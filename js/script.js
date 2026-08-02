@@ -19,104 +19,141 @@ function checkPassword(){
     }
 
 }
-const canvas = document.getElementById("fireworks");
 
-const ctx = canvas.getContext("2d");
+function checkPassword(){
 
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    let password = document.getElementById("password-input").value;
 
 
-let particles = [];
+    if(password === "birthday"){
+
+        document.getElementById("password-page").style.display = "none";
+
+        document.getElementById("birthday-page").style.display = "flex";
 
 
-function createFirework(){
+        startFireworks();
 
-    let x = Math.random() * canvas.width;
-    let y = Math.random() * canvas.height / 2;
+    }
 
+    else{
 
-    for(let i = 0; i < 60; i++){
-
-        particles.push({
-
-            x:x,
-            y:y,
-
-            speedX:
-            (Math.random()-0.5)*8,
-
-            speedY:
-            (Math.random()-0.5)*8,
-
-            life:100
-
-        });
+        document.getElementById("error-message").innerHTML =
+        "Wrong password. Try again.";
 
     }
 
 }
 
 
-function animateFireworks(){
 
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
+function startFireworks(){
+
+    const canvas = document.getElementById("fireworks");
+
+    const ctx = canvas.getContext("2d");
 
 
-    particles.forEach((p,index)=>{
+    canvas.width = window.innerWidth;
+
+    canvas.height = window.innerHeight;
 
 
-        p.x += p.speedX;
-
-        p.y += p.speedY;
-
-        p.life--;
+    let particles = [];
 
 
-        ctx.beginPath();
+    function createFirework(){
 
-        ctx.arc(
-            p.x,
-            p.y,
-            3,
-            0,
-            Math.PI*2
-        );
+        let x = Math.random() * canvas.width;
+
+        let y = Math.random() * canvas.height / 2;
 
 
-        ctx.fillStyle =
-        "white";
+        for(let i = 0; i < 60; i++){
 
-        ctx.fill();
+            particles.push({
 
+                x:x,
 
-        if(p.life <= 0){
+                y:y,
 
-            particles.splice(index,1);
+                speedX:
+                (Math.random()-0.5)*8,
+
+                speedY:
+                (Math.random()-0.5)*8,
+
+                life:100
+
+            });
 
         }
 
+    }
 
-    });
 
 
-    requestAnimationFrame(
-        animateFireworks
+    function animate(){
+
+        ctx.clearRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        particles.forEach((p,index)=>{
+
+
+            p.x += p.speedX;
+
+            p.y += p.speedY;
+
+            p.life--;
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                p.x,
+                p.y,
+                3,
+                0,
+                Math.PI*2
+            );
+
+
+            ctx.fillStyle = "white";
+
+            ctx.fill();
+
+
+
+            if(p.life <= 0){
+
+                particles.splice(index,1);
+
+            }
+
+
+        });
+
+
+        requestAnimationFrame(animate);
+
+    }
+
+
+
+    setInterval(
+        createFirework,
+        1000
     );
+
+
+    animate();
 
 }
 
-
-setInterval(
-    createFirework,
-    1200
-);
-
-
-animateFireworks();
