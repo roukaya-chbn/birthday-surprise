@@ -106,7 +106,6 @@ button {
 
 }
 
-
 #birthday-page {
 
     display: none;
@@ -117,10 +116,140 @@ button {
 
     align-items: center;
 
-    background: black;
+    background:
+    radial-gradient(circle, #ffd6f6, #5b2c83);
 
     color: white;
 
-    font-size: 40px;
+    text-align: center;
 
 }
+
+
+.birthday-content {
+
+    animation: appear 3s ease forwards;
+
+}
+
+
+.birthday-content h1 {
+
+    font-family: "Georgia", serif;
+
+    font-size: 60px;
+
+    text-shadow:
+    0 0 10px #fff,
+    0 0 20px #ff9de2,
+    0 0 40px #ff4fc3;
+
+}
+
+
+.birthday-content span {
+
+    display: block;
+
+    font-size: 75px;
+
+    color: #ffe6f7;
+
+}
+
+
+.birthday-content p {
+
+    font-size: 22px;
+
+    margin-top: 20px;
+
+    opacity: 0;
+
+    animation: fadeText 3s ease forwards;
+
+    animation-delay: 2s;
+
+}
+
+
+.bouquet {
+
+    width: 280px;
+
+    opacity: 0;
+
+    transform: translateY(200px);
+
+    animation:
+    bouquetRise 2s ease forwards;
+
+}
+
+
+@keyframes bouquetRise {
+
+
+    from {
+
+        opacity:0;
+
+        transform:translateY(200px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+@keyframes appear {
+
+
+    from {
+
+        opacity:0;
+
+        transform:scale(0.8);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+@keyframes fadeText {
+
+
+    from {
+
+        opacity:0;
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+    }
+
+}
+
