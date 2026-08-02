@@ -3,7 +3,7 @@ function checkPassword(){
     let password = document.getElementById("password-input").value;
 
 
-    if(password === "birthday"){
+    if(password === "1008"){
 
         document.getElementById("password-page").style.display = "none";
 
