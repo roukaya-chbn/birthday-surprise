@@ -111,15 +111,17 @@ button {
     display: none;
 
     height: 100vh;
+    width: 100%;
 
     justify-content: center;
-
     align-items: center;
 
     background:
-    radial-gradient(circle, #ffd6f6, #5b2c83);
+    radial-gradient(circle at center, #ffd6ec, #6b1b70);
 
     color: white;
+
+    overflow: hidden;
 
     text-align: center;
 
@@ -128,128 +130,142 @@ button {
 
 .birthday-content {
 
-    animation: appear 3s ease forwards;
+    position: relative;
 
-}
-
-
-.birthday-content h1 {
-
-    font-family: "Georgia", serif;
-
-    font-size: 60px;
-
-    text-shadow:
-    0 0 10px #fff,
-    0 0 20px #ff9de2,
-    0 0 40px #ff4fc3;
-
-}
-
-
-.birthday-content span {
-
-    display: block;
-
-    font-size: 75px;
-
-    color: #ffe6f7;
-
-}
-
-
-.birthday-content p {
-
-    font-size: 22px;
-
-    margin-top: 20px;
-
-    opacity: 0;
-
-    animation: fadeText 3s ease forwards;
-
-    animation-delay: 2s;
+    animation: magicalEntrance 2.5s ease forwards;
 
 }
 
 
 .bouquet {
 
-    width: 280px;
+    width: 320px;
+
+    display: block;
+
+    margin: auto;
+
+    filter:
+    drop-shadow(0 0 25px rgba(255,255,255,0.8));
+
+    animation:
+    bouquetFloat 4s ease-in-out infinite;
+
+}
+
+
+
+.birthday-content h1 {
+
+    margin-top: 20px;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 90px;
+
+    font-weight: normal;
+
+    text-shadow:
+    0 0 10px white,
+    0 0 30px pink;
+
+}
+
+
+
+.birthday-content span {
+
+    display: block;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 55px;
+
+    letter-spacing: 5px;
+
+    margin-top: 15px;
+
+}
+
+
+
+.birthday-content p {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 20px;
+
+    margin-top: 25px;
 
     opacity: 0;
 
-    transform: translateY(200px);
-
     animation:
-    bouquetRise 2s ease forwards;
+    messageAppear 2s ease forwards;
 
-}
-
-
-@keyframes bouquetRise {
-
-
-    from {
-
-        opacity:0;
-
-        transform:translateY(200px);
-
-    }
-
-
-    to {
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
+    animation-delay: 2s;
 
 }
 
 
 
-@keyframes appear {
+@keyframes magicalEntrance {
 
 
-    from {
+from {
 
-        opacity:0;
+opacity:0;
 
-        transform:scale(0.8);
+transform:scale(0.5);
 
-    }
+}
 
 
-    to {
+to {
 
-        opacity:1;
+opacity:1;
 
-        transform:scale(1);
+transform:scale(1);
 
-    }
+}
 
 }
 
 
 
-@keyframes fadeText {
+@keyframes bouquetFloat {
 
 
-    from {
+0%,100% {
 
-        opacity:0;
-
-    }
-
-
-    to {
-
-        opacity:1;
-
-    }
+transform:translateY(0);
 
 }
 
+
+50% {
+
+transform:translateY(-15px);
+
+}
+
+}
+
+
+
+@keyframes messageAppear {
+
+
+from {
+
+opacity:0;
+
+}
+
+
+to {
+
+opacity:1;
+
+}
+
+}
