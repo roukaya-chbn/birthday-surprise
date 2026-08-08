@@ -1,61 +1,23 @@
 function checkPassword() {
 
-    let password = document.getElementById("password-input").value;
+    const passwordInput = document.getElementById("password-input");
+    const passwordPage = document.getElementById("password-page");
+    const birthdayPage = document.getElementById("birthday-page");
+    const errorMessage = document.getElementById("error-message");
 
-    if (password === "1008") {
+    const password = passwordInput.value;
 
-        document.getElementById("password-page").style.display = "none";
-        document.getElementById("birthday-page").style.display = "flex";
+    if (password === "birthday") {
+
+        passwordPage.style.display = "none";
+        birthdayPage.style.display = "flex";
 
     } else {
 
-        document.getElementById("error-message").innerHTML =
-            "Wrong password. Try again.";
+        errorMessage.textContent = "Wrong password. Try again.";
 
     }
-
 }
-
-function checkPassword(){
-
-    let password = document.getElementById("password-input").value;
-
-
-    if(password === "1008"){
-
-        document.getElementById("password-page").style.display = "none";
-
-        document.getElementById("birthday-page").style.display = "flex";
-
-
-      
-
-    }
-
-    else{
-
-        document.getElementById("error-message").innerHTML =
-        "Wrong password. Try again.";
-
-    }
-
-}
-
-
-
-function startFireworks(){
-
-    const canvas = document.getElementById("fireworks");
-
-    const ctx = canvas.getContext("2d");
-
-
-    canvas.width = window.innerWidth;
-
-    canvas.height = window.innerHeight;
-
-
-    let particles = [];
 
 
     
